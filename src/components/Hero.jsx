@@ -9,7 +9,7 @@ const Hero = () => {
      
       <div className='w-1/2 h-full '>
         <img 
-          src="/content.png" 
+          src="content.png" 
           alt="Content" 
           className='w-full h-full object-cover rounded-tr-[40px]'
         />

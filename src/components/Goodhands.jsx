@@ -10,8 +10,8 @@ function Goodhands() {
          
           <div className='w-1/2 h-full  mt-[100px] '>
             <img 
-              src="/contents.png" 
-              alt="Contents" 
+              src="contents.png" 
+              alt="contents" 
               className='w-full h-full object-cover rounded-tr-[40px]'
             />
           </div>

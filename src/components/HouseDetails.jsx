@@ -3,7 +3,6 @@
   import CustomHeader from './CustomHeader'; 
   import CustomFooter from './CustomFooter'; 
   import Slider from './Slider';
-
   import ContactCard from './ContactCard';
   import Bed from '../assets/Bed.svg';
   import Sun from '../assets/Sun.svg';
@@ -12,7 +11,6 @@
   import Bathroom from '../assets/Bathroom.svg';
   import { houses } from '../assets/houses';
   import Rectangle from '../assets/Rectangle.svg'
-
   import SliderCards from './SliderCards';
 
   const HouseDetails = () => {

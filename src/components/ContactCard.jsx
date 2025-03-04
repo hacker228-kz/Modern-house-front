@@ -9,7 +9,7 @@ export default function ContactCard() {
       {/* Шапка карточки с фоном */}
       <div className="flex items-center mb-4 bg-[#F5F5F5] p-4 rounded-[15px]">
         <img
-          src="/Avatar.png"
+          src="Avatar.png"
           alt="Avatar"
           className="w-12 h-12 rounded-full mr-3 object-cover"
         />
