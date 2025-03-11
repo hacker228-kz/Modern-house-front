@@ -1,41 +1,110 @@
-// import React, { useState } from 'react'
-// import '../assets/houses';
 
-// const images = [
-//   // Замените ссылки на свои реальные изображения
-//   'https://picsum.photos/id/1018/1000/600',
-//   'https://picsum.photos/id/1024/1000/600',
-//   'https://picsum.photos/id/1025/1000/600',
-//   'https://picsum.photos/id/1037/1000/600',
-//   'https://picsum.photos/id/1040/1000/600',
-// ]
+
+// import React, { useState } from 'react'
+// import { houses } from '../assets/houses' // убедитесь, что путь и экспорт верны
 
 // export default function Slider() {
-//   const [currentIndex, setCurrentIndex] = useState(0)
-//   const [isFading, setIsFading] = useState(false)
+//   // Используем массив фотографий из первого дома
+//   const images = houses[0].photos;
+//   const [currentIndex, setCurrentIndex] = useState(0);
+//   const [isFading, setIsFading] = useState(false);
 
 //   const handleClick = (index) => {
-//     // Добавляем эффект затухания (fade-out) перед сменой фото
-//     setIsFading(true)
+//     // Эффект затухания перед сменой фото
+//     setIsFading(true);
 //     setTimeout(() => {
-//       setCurrentIndex(index)
-//       // После смены фото добавляем небольшую задержку, чтобы показать fade-in
+//       setCurrentIndex(index);
+//       // Небольшая задержка для эффекта появления (fade-in)
 //       setTimeout(() => {
-//         setIsFading(false)
-//       }, 50)
-//     }, 300) // время должно совпадать с transition-duration для fade-out
-//   }
+//         setIsFading(false);
+//       }, 50);
+//     }, 300); // время совпадает с transition-duration для fade-out
+//   };
 
 //   return (
-//     <div className="flex flex-col items-center mx-auto max-w-4xl py-8 px-4">
+
+
+
+//     <div className="flex flex-col items-center mx-auto max-w-4xl py-8 px-4 ">
 //       {/* Большое фото */}
-//       <div className="w-full mb-4">
-//         <div className="relative w-full h-64 sm:h-96 overflow-hidden">
+//       <div className="w-full mb-4 h-[700px]">
+//         <div className="relative w-full  overflow-hidden mt-30">
 //           <img
 //             key={currentIndex}
 //             src={images[currentIndex]}
 //             alt={`Фото ${currentIndex}`}
 //             className={`
+//                 rounded-tr-[50px]
+//               object-cover w-[1400px] h-[550px] rounded-lg
+//               transition-opacity duration-300
+//               ${isFading ? 'opacity-0' : 'opacity-100'}
+//             `}
+//           />
+//         </div>
+//       </div>
+
+//       {/* Превью фотографий */}
+//       <div className="flex space-around gap-9">
+//         {images.map((img, index) => (
+//           <div
+//             key={index}
+//             className="flex-shrink-0 cursor-pointer "
+//             onClick={() => handleClick(index)}
+//           >
+//             <img
+//               src={img}
+//               alt={`Превью ${index}`}
+//               className={`
+//                 rounded-tr-[15px]   
+//                 w-20 h-20 object-cover rounded-md box-border
+//                 transition-transform duration-300 
+//                 hover:scale-105
+//                 ${index === currentIndex ? 'border-4 border-blue-500' : ''}
+//               `}
+//             />
+//           </div>
+//         ))}
+//       </div>
+
+//     </div>
+
+//   );
+// }
+
+
+
+// import React, { useState } from 'react';
+// import { houses } from '../assets/houses'; // убедитесь, что путь и экспорт верны
+
+// export default function Slider() {
+//   // Используем массив фотографий из первого дома
+//   const images = houses[0].photos;
+//   const [currentIndex, setCurrentIndex] = useState(0);
+//   const [isFading, setIsFading] = useState(false);
+
+//   const handleClick = (index) => {
+//     // Эффект затухания перед сменой фото
+//     setIsFading(true);
+//     setTimeout(() => {
+//       setCurrentIndex(index);
+//       // Задержка для эффекта появления (fade-in)
+//       setTimeout(() => {
+//         setIsFading(false);
+//       }, 50);
+//     }, 300); // время соответствует transition-duration для fade-out
+//   };
+
+//   return (
+//     <div className="flex flex-col items-center mx-auto max-w-4xl py-8 px-4">
+//       {/* Большое фото */}
+//       <div className="w-full mb-4 h-64 sm:h-[700px]">
+//         <div className="relative w-full overflow-hidden mt-4 sm:mt-30">
+//           <img
+//             key={currentIndex}
+//             src={images[currentIndex]}
+//             alt={`Фото ${currentIndex}`}
+//             className={`
+//               rounded-tr-[20px] sm:rounded-tr-[50px]
 //               object-cover w-full h-full rounded-lg
 //               transition-opacity duration-300
 //               ${isFading ? 'opacity-0' : 'opacity-100'}
@@ -44,8 +113,8 @@
 //         </div>
 //       </div>
 
-//       {/* Превью внизу */}
-//       <div className="flex gap-2 overflow-x-auto">
+//       {/* Превью фотографий */}
+//       <div className="flex space-x-4 sm:space-x-9">
 //         {images.map((img, index) => (
 //           <div
 //             key={index}
@@ -56,26 +125,24 @@
 //               src={img}
 //               alt={`Превью ${index}`}
 //               className={`
-//                 w-20 h-20 object-cover rounded-md
-//                 transition-transform duration-300
-//                 hover:scale-105
-//                 ${index === currentIndex ? 'border-4 border-blue-500' : ''}
+//                 rounded-tr-[10px] sm:rounded-tr-[15px]
+//                 w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-md box-border
+//                 transition-transform duration-300 hover:scale-105
+//                 ${index === currentIndex ? 'border-2 sm:border-4 border-blue-500' : ''}
 //               `}
 //             />
 //           </div>
 //         ))}
 //       </div>
 //     </div>
-//   )
+//   );
 // }
 
-
-
-import React, { useState } from 'react'
-import { houses } from '../assets/houses' // убедитесь, что путь и экспорт верны
+ 
+import React, { useState } from 'react';
+import { houses } from '../assets/houses'; // убедитесь, что путь и экспорт верны
 
 export default function Slider() {
-  // Используем массив фотографий из первого дома
   const images = houses[0].photos;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
@@ -85,28 +152,26 @@ export default function Slider() {
     setIsFading(true);
     setTimeout(() => {
       setCurrentIndex(index);
-      // Небольшая задержка для эффекта появления (fade-in)
+      // Задержка для эффекта появления (fade-in)
       setTimeout(() => {
         setIsFading(false);
       }, 50);
-    }, 300); // время совпадает с transition-duration для fade-out
+    }, 300); // время соответствует transition-duration для fade-out
   };
 
+
   return (
-
-
-
-    <div className="flex flex-col items-center mx-auto max-w-4xl py-8 px-4 ">
+    <div className="flex flex-col items-center mx-auto max-w-4xl py-8 px-2 sm:px-4">
       {/* Большое фото */}
-      <div className="w-full mb-4 h-[700px]">
-        <div className="relative w-full  overflow-hidden mt-30">
+      <div className="w-full mb-4 h-[300px] sm:h-[700px]">
+        <div className="relative w-full overflow-hidden mt-4 sm:mt-30">
           <img
             key={currentIndex}
             src={images[currentIndex]}
             alt={`Фото ${currentIndex}`}
             className={`
-                rounded-tr-[50px]
-              object-cover w-[1400px] h-[550px] rounded-lg
+              rounded-tr-[20px] sm:rounded-tr-[50px]
+              object-cover w-full h-[250px] sm:h-[550px] rounded-lg
               transition-opacity duration-300
               ${isFading ? 'opacity-0' : 'opacity-100'}
             `}
@@ -115,19 +180,19 @@ export default function Slider() {
       </div>
 
       {/* Превью фотографий */}
-      <div className="flex space-around gap-9">
+      <div className="flex overflow-x-auto pb-2 gap-4 sm:gap-9 w-full px-2">
         {images.map((img, index) => (
           <div
             key={index}
-            className="flex-shrink-0 cursor-pointer "
+            className="flex-shrink-0 cursor-pointer"
             onClick={() => handleClick(index)}
           >
             <img
               src={img}
               alt={`Превью ${index}`}
               className={`
-                rounded-tr-[15px]   
-                w-20 h-20 object-cover rounded-md box-border
+                rounded-tr-[10px] sm:rounded-tr-[15px]
+                w-12 h-12 sm:w-20 sm:h-20 object-cover rounded-md box-border
                 transition-transform duration-300 
                 hover:scale-105
                 ${index === currentIndex ? 'border-4 border-blue-500' : ''}
@@ -136,12 +201,9 @@ export default function Slider() {
           </div>
         ))}
       </div>
-
     </div>
-
   );
 }
-
 
 
 // import React, { useState } from 'react';

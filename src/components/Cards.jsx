@@ -799,16 +799,64 @@
 
 
 
+// import { Link } from 'react-router-dom';
+
+// function Cards({ houses = [] }) {
+//   return (
+//     <div id="modern-house" className="bg-[#F5F5F5] py-10  -mt-140 pt-140 -mb-90 pb-100">
+//       <div className="container mx-auto px-20">
+//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 ">
+//           {houses.map((house) => (
+//             <Link to={`/house/${house.id}`} key={house.id} className="block">
+//               <div className="bg-white rounded-[20px] shadow-lg overflow-hidden flex flex-col border border-gray-200 ">
+//                 {/* Изображение */}
+//                 <img
+//                   src={house.image || house.imageUrl}
+//                   alt={house.title}
+//                   className="w-full h-64 object-cover"
+//                 />
+
+//                 {/* Заголовок */}
+//                 <div className="p-4 border-b border-gray-200 py-6">
+//                   <h2 className="text-lg font-bold text-gray-900 text-left">
+//                     {house.title}
+//                   </h2>
+//                 </div>
+
+//                 {/* Статистика (иконки и цифры) */}
+//                 <div className="flex grid grid-cols-3 text-center border-t border-gray-200 divide-x divide-gray-200">
+//                   {house.stats?.map((stat, index) => (
+//                     <div key={index} className="flex items-center justify-center gap-2 py-6">
+//                       <img src={stat.icon} alt={stat.label} className="w-6 h-6" />
+//                       <span className="text-sm font-medium text-gray-900">{stat.label}</span>
+//                     </div>
+//                   ))}
+//                 </div>
+//               </div>
+//             </Link>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Cards;
+
+
+
 import { Link } from 'react-router-dom';
 
 function Cards({ houses = [] }) {
   return (
-    <div id="modern-house" className="bg-[#F5F5F5] py-10  -mt-140 pt-140 -mb-90 pb-100">
-      <div className="container mx-auto px-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 ">
+    <div
+      className="bg-[#F5F5F5] py-10 sm:py-20 -mt-10 sm:-mt-140 pt-10 sm:pt-140 -mb-10 sm:-mb-90 pb-10 sm:pb-100"
+    >
+      <div className="container mx-auto px-4 sm:px-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
           {houses.map((house) => (
             <Link to={`/house/${house.id}`} key={house.id} className="block">
-              <div className="bg-white rounded-[20px] shadow-lg overflow-hidden flex flex-col border border-gray-200 ">
+              <div className="bg-white rounded-[20px] shadow-lg overflow-hidden flex flex-col border border-gray-200">
                 {/* Изображение */}
                 <img
                   src={house.image || house.imageUrl}
